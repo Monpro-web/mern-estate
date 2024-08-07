@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
+import userRouter from './routes/user.route.js';
 
 //database connect
 mongoose.connect(process.env.MONGO).then(() => {
@@ -13,6 +14,7 @@ mongoose.connect(process.env.MONGO).then(() => {
 const app = express();
 
 
+app.use('/api/user',userRouter);
 
 
 app.listen(3000, ()=>{
